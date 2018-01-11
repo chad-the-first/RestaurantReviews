@@ -4,6 +4,15 @@ let restaurants,
 var map
 var markers = []
 
+function serviceworker(){
+  if(!navigator.serviceWorker) return;
+  navigator.serviceWorker.register('sw.js').then(function(){
+    console.log('registration worked!');
+  }).catch(function(){
+    console.log('registration failed!');
+  });
+}
+serviceworker();
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -138,14 +147,15 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
-  const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
-
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
   li.append(name);
+
+  const image = document.createElement('img');
+  image.className = 'restaurant-img';
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name +'  restaurant image';
+  li.append(image);
 
   const neighborhood = document.createElement('p');
   neighborhood.innerHTML = restaurant.neighborhood;
@@ -156,7 +166,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
-  more.innerHTML = 'View Details';
+  more.innerHTML = 'View '+ restaurant.name;
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
