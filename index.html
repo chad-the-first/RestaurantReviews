@@ -15,10 +15,10 @@
     </nav>
     <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select aria-label="select neighborhood" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select aria-label="select cuisine" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
@@ -26,7 +26,7 @@
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map" role="map" aria-hidden="true"></div>
+      <div id="map" role="presentation" aria-hidden="true"></div>
     </section>
     <section>
       
