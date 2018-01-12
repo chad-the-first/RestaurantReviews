@@ -72,7 +72,7 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width: calc(100% - 80px);
 }
 
 /* Display list items side by side */
@@ -201,10 +201,10 @@ nav h1 a {
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
+  height: 84%;
   position: fixed;
   right: 0;
-  top: 70px;
+  top: 120px;
   width: 50%;
 }
 .inside #map {
@@ -350,19 +350,26 @@ nav h1 a {
     margin: 0 auto 20px auto;
   }
   #restaurant-hours {
-    padding-left: 10px;
+    width: 90%;
+    margin: 0px auto;
   }
   #reviews-container h2 {
-    padding-left: 10px;
+    text-align: center;
   }
   #restaurant-address {
-    padding-left: 10px;
+    width: 90%;
+    margin: 10px auto;
+  }
+  #reviews-list li {
+    width: 90%;
+    margin: 0 auto 30px auto;
   }
 }
 
 @media only screen and (max-width: 760px) {
   #restaurants-list {
     grid-template-columns: auto;
+    padding: 30px 0;
   }
   nav h1 {
     padding-top: 0px;
